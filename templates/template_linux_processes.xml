@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-10-13T10:33:36Z</date>
+    <date>2015-10-14T12:18:56Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -157,7 +157,7 @@
                             <history>30</history>
                             <trends>120</trends>
                             <status>0</status>
-                            <value_type>3</value_type>
+                            <value_type>0</value_type>
                             <allowed_hosts/>
                             <units>%</units>
                             <delta>0</delta>
@@ -1315,6 +1315,49 @@ http://linux.die.net/man/8/smem</description>
                             <logtimefmt/>
                         </item_prototype>
                         <item_prototype>
+                            <name>{#PROC_NAME}({#PROC_PID}): PSS memory relative to total memory in %</name>
+                            <type>15</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>mem_pss.perc[&quot;{#PROC_NAME} {#PROC_PID}&quot;]</key>
+                            <delay>60</delay>
+                            <history>30</history>
+                            <trends>120</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>%</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params>(last(&quot;system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} mem_pss ]&quot;) / last(&quot;vm.memory.size[total]&quot;)) * 100</params>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Processes</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
+                        <item_prototype>
                             <name>{#PROC_NAME}({#PROC_PID}): Swap</name>
                             <type>0</type>
                             <snmp_community/>
@@ -1444,6 +1487,49 @@ http://linux.die.net/man/8/smem</description>
                             <valuemap/>
                             <logtimefmt/>
                         </item_prototype>
+                        <item_prototype>
+                            <name>{#PROC_NAME}({#PROC_PID}): USS memory relative to total memory in %</name>
+                            <type>15</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>mem_uss.perc[&quot;{#PROC_NAME} {#PROC_PID}&quot;]</key>
+                            <delay>60</delay>
+                            <history>30</history>
+                            <trends>120</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units>%</units>
+                            <delta>0</delta>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params>(last(&quot;system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} mem_uss ]&quot;) / last(&quot;vm.memory.size[total]&quot;)) * 100</params>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Processes</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                        </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
@@ -1465,26 +1551,17 @@ http://linux.die.net/man/8/smem</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Linux Processes:system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} mem_uss ].count({$USS_USAGE_TIME},{$USS_USAGE_VALUE},&quot;{$USS_USAGE_OPERATOR}&quot;)}={$USS_USAGE_COUNT}</expression>
-                            <name>{#PROC_NAME}({#PROC_PID}): High USS mem usage</name>
+                            <expression>{Template Linux Processes:system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} nice ].delta(#60)}&lt;&gt;0</expression>
+                            <name>{#PROC_NAME}({#PROC_PID}): Nice value changed in the last hour</name>
                             <url/>
                             <status>0</status>
-                            <priority>3</priority>
+                            <priority>1</priority>
                             <description/>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Linux Processes:system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} nice ].abschange()}&lt;&gt;1</expression>
-                            <name>{#PROC_NAME}({#PROC_PID}): Nice value changed</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>4</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template Linux Processes:system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} oom_score ].abschange()}&gt;1</expression>
-                            <name>{#PROC_NAME}({#PROC_PID}): OOM Score increased</name>
+                            <expression>{Template Linux Processes:system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} oom_score ].delta(#60)}&lt;&gt;0</expression>
+                            <name>{#PROC_NAME}({#PROC_PID}): OOM score changed in the last hour</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
@@ -1492,7 +1569,7 @@ http://linux.die.net/man/8/smem</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Linux Processes:system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} sigpending ].count({$SIGPENDING_USAGE_TIME},{$SIGPENDING_USAGE_VALUE},&quot;{$SIGPENDING_USAGE_OPERATOR}&quot;)}&gt;{$SIGPENDING_USAGE_COUNT}</expression>
+                            <expression>{Template Linux Processes:system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} sigpending ].count({$SIGPENDING_USAGE_TIME},{$SIGPENDING_USAGE_VALUE},&quot;{$SIGPENDING_USAGE_OPERATOR}&quot;)}={$SIGPENDING_USAGE_COUNT}</expression>
                             <name>{#PROC_NAME}({#PROC_PID}): Pending signals</name>
                             <url>http://unix.stackexchange.com/questions/197600/what-are-pending-signals</url>
                             <status>0</status>
@@ -1519,7 +1596,7 @@ http://linux.die.net/man/8/smem</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template Linux Processes:system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} fd ].count({$FD_USAGE_TIME},{$FD_USAGE_VALUE},&quot;{$FD_USAGE_OPERATOR}&quot;)}&gt;{$FD_USAGE_COUNT}</expression>
+                            <expression>{Template Linux Processes:system.run[{$ZABBIX_SCRIPTS_DIR}/get_proc_stats.sh {#PROC_PID} fd ].count({$FD_USAGE_TIME},{$FD_USAGE_VALUE},&quot;{$FD_USAGE_OPERATOR}&quot;)}={$FD_USAGE_COUNT}</expression>
                             <name>{#PROC_NAME}({#PROC_PID}): Too many FDs in usage</name>
                             <url/>
                             <status>0</status>

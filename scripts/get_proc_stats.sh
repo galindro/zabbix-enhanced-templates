@@ -110,7 +110,7 @@ case ${ACTION} in
       awk '{ print $13 }' ${STAT}
     ;;
   cpu_usage ) # http://stackoverflow.com/questions/14885598/bash-script-checking-cpu-usage-of-specific-process
-      top -b -p ${1} -n 1 | grep ${1} | awk '{print $9}'
+      top -b -p ${1} -n 1 | grep ${1} | awk '{print $9}' | sed 's/,/./g'
     ;;
   priority ) # http://superuser.com/questions/203657/difference-between-nice-value-and-priority-in-the-top-output
       awk '{ print $18 }' ${STAT}
