@@ -3,7 +3,7 @@
 fn_help() {
   echo "*** Error: ${1} ***"
   echo -e "\n Usage:"
-  echo -e "\n  For discovery: ${0} <json> discovery"
+  echo -e "\n  For discovery: ${0} <json> discovery or ${0} <json> net_discovery"
   echo "   * Example #1: Discover process pids with exactly names \"trivial-rewrite\" and \"qmgr\" that are owned by postfix and discover process pids with \"zabbix\" on its name and \"/usr/bin\" regexp on its entire command line -> ${0} '{\"postfix\":{\"exactly\":[\"trivial-rewrite\",\"qmgr\"]},\"root\":{\"name\":[\"zabbix\",\"ssh\"],\"cmd\":[\"/usr/bin\"]}}' discovery"
   echo "   * Example #2: ${0} '{\"postfix\":{\"exactly\":[\"trivial-rewrite\",\"qmgr\"]},\"root\":{\"name\":[\"zabbix\",\"ssh\"],\"cmd\":[\"/bin/sh\"]}}' discovery"
   echo -e "\n  For counters: ${0} <pid> <options>"
