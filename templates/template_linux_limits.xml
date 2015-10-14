@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-10-13T10:33:00Z</date>
+    <date>2015-10-14T11:24:43Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -32,7 +32,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -t | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -t | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -64,6 +64,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -75,7 +78,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -v | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -v | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -108,6 +111,9 @@
                         <application>
                             <name>Limits</name>
                         </application>
+                        <application>
+                            <name>OS</name>
+                        </application>
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
@@ -118,7 +124,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -q | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -q | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -150,6 +156,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -194,6 +203,9 @@
                         <application>
                             <name>Limits</name>
                         </application>
+                        <application>
+                            <name>OS</name>
+                        </application>
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
@@ -204,7 +216,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -x | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -x | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -236,6 +248,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -247,7 +262,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -n | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -n | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -279,6 +294,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -290,7 +308,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -i | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -i | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -322,6 +340,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -333,7 +354,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -u | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -u | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -365,6 +386,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -376,7 +400,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -r | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -r | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -408,6 +432,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -419,7 +446,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -m | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -m | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -451,6 +478,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -462,7 +492,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -e | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -e | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -494,6 +524,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -505,7 +538,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -d | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -d | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -537,6 +570,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -548,7 +584,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -c | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -c | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -580,6 +616,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -591,7 +630,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -f | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -f | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -623,6 +662,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -634,7 +676,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -l | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -l | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -667,6 +709,9 @@
                         <application>
                             <name>Limits</name>
                         </application>
+                        <application>
+                            <name>OS</name>
+                        </application>
                     </applications>
                     <valuemap/>
                     <logtimefmt/>
@@ -677,7 +722,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -s | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -s | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -709,6 +754,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -763,7 +811,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>system.run[&quot;ulimit -p | sed 's,unlimited,-1,g'&quot;]</key>
+                    <key>system.run[&quot;/bin/bash -c 'ulimit -p | sed 's,unlimited,-1,g''&quot;]</key>
                     <delay>60</delay>
                     <history>30</history>
                     <trends>120</trends>
@@ -795,6 +843,9 @@
                     <applications>
                         <application>
                             <name>Limits</name>
+                        </application>
+                        <application>
+                            <name>OS</name>
                         </application>
                     </applications>
                     <valuemap/>
