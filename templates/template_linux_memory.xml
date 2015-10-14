@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-10-13T12:38:19Z</date>
+    <date>2015-10-14T11:26:15Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -67,7 +67,7 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>Active + wired memory in relation to total</name>
+                    <name>Active + wired memory in relation to total in %</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -79,7 +79,7 @@
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units>B</units>
+                    <units>%</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -325,7 +325,7 @@
                     <logtimefmt/>
                 </item>
                 <item>
-                    <name>Inactive + cached + free memory in relation to 'total'</name>
+                    <name>Inactive + cached + free memory in relation to 'total' in %</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
@@ -337,7 +337,7 @@
                     <status>0</status>
                     <value_type>0</value_type>
                     <allowed_hosts/>
-                    <units>B</units>
+                    <units>%</units>
                     <delta>0</delta>
                     <snmpv3_contextname/>
                     <snmpv3_securityname/>
@@ -546,49 +546,6 @@
                     <multiplier>0</multiplier>
                     <snmp_oid/>
                     <key>vm.memory.size[free]</key>
-                    <delay>60</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units>B</units>
-                    <delta>0</delta>
-                    <snmpv3_contextname/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description>https://www.zabbix.com/documentation/2.4/manual/appendix/items/vm.memory.size_params</description>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Memory</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                    <logtimefmt/>
-                </item>
-                <item>
-                    <name>Memory that may be simultaneously accessed by multiple processes</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>vm.memory.size[shared]</key>
                     <delay>60</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -860,18 +817,6 @@
                     <item>
                         <host>Template Linux Memory</host>
                         <key>vm.memory.size[free]</key>
-                    </item>
-                </graph_item>
-                <graph_item>
-                    <sortorder>13</sortorder>
-                    <drawtype>0</drawtype>
-                    <color>969696</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>4</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>Template Linux Memory</host>
-                        <key>vm.memory.size[shared]</key>
                     </item>
                 </graph_item>
                 <graph_item>
