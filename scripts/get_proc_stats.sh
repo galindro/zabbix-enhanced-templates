@@ -23,7 +23,7 @@ fn_get_procs() {
 
   for PROC_USER in ${PROC_USERS}; do
     fn_check_user ${PROC_USER}
-    SEARCH_TYPES=`jq -r ".${PROC_USER} |keys[]" <<< ${1}`
+    SEARCH_TYPES=`jq -r ".[\"${PROC_USER}\"] |keys[]" <<< ${1}`
 
     for SEARCH_TYPE in $SEARCH_TYPES; do
       case $SEARCH_TYPE in
@@ -35,7 +35,7 @@ fn_get_procs() {
           ;;
       esac
 
-      PROC_PATTERNS=`jq -r ".${PROC_USER} |.${SEARCH_TYPE} |.[]" <<< ${1}`
+      PROC_PATTERNS=`jq -r ".[\"${PROC_USER}\"] |.${SEARCH_TYPE} |.[]" <<< ${1}`
 
       for PROC_PATTERN in ${PROC_PATTERNS}; do
         CMD_RESULT=`pgrep ${PGREP_SEARCH_PARAM} ${PROC_PATTERN} -u ${PROC_USER} -l`
