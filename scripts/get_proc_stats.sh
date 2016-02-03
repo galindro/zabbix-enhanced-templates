@@ -85,11 +85,11 @@ case ${ACTION} in
       for IFNAME in ${IFNAMES}; do
         fn_get_procs ${1} "\"{#IFNAME}\":\"${IFNAME}\""
       done
-      echo $ZBX_JSON | jq '.'
+      echo ${ZBX_JSON}
     ;;
   discovery )
       fn_get_procs ${1}
-      echo $ZBX_JSON | jq '.'
+      echo ${ZBX_JSON}
     ;;
   fd )
       ls ${FD_STAT} | wc -l
