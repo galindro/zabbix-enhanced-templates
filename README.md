@@ -51,10 +51,19 @@ The triggers associated with the template are configurable via user MACROS. The 
 
 ![](https://raw.githubusercontent.com/galindro/zabbix-enhanced-templates/master/template_linux_processes_macros.png)
 
-
 ### Template Linux Vulnerabilities
 
 This template is intended to show common vulnerabilities found in some Linux packages and libraries.
+
+### Template Linux NTP
+
+Use this template to monitor linux ntpd deamon. This template uses the following scripts and userparameter files:
+
+[ntp_discovery.sh](https://github.com/galindro/zabbix-enhanced-templates/blob/master/scripts/ntp_discovery.sh): used to discover the ntp peers
+[ntp_erros.sh](https://github.com/galindro/zabbix-enhanced-templates/blob/master/scripts/ntp_errors.sh): used to calculate the number of reachability errors. It is a customized version of [ntp_packets.sh](http://www.linuxjournal.com/article/6812)
+[userparameter_ntp.conf](https://github.com/galindro/zabbix-enhanced-templates/blob/master/zabbix_agentd.d/userparameter_ntp.conf): used by zabbix agent
+
+The scripts must be placed in /etc/zabbix/scripts. If you want to change the destiny, you will need to changed the [userparameter_ntp.conf](https://github.com/galindro/zabbix-enhanced-templates/blob/master/zabbix_agentd.d/userparameter_ntp.conf) file to reflect the new path.
 
 ## Installation
 
@@ -63,7 +72,7 @@ This template is intended to show common vulnerabilities found in some Linux pac
 * Import the required value mappings into database
 
 ```bash 
-mysql -h $MYSQL_HOST -u $MYSQL_USER -p $MYSQL_DATABASE < sql/value-mappings.sql
+mysql -h $MYSQL_HOST -u $MYSQL_USER -p $MYSQL_DATABASE < sql/value-mappings*.sql
 ```
 
 * Disable vm.memory.* items from any template that is used by hosts that you are planning to associate the Template Linux Memory to avoid duplicated key problem
