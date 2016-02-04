@@ -59,9 +59,9 @@ This template is intended to show common vulnerabilities found in some Linux pac
 
 Use this template to monitor linux ntpd deamon. This template uses the following scripts and userparameter files:
 
-[ntp_discovery.sh](https://github.com/galindro/zabbix-enhanced-templates/blob/master/scripts/ntp_discovery.sh): used to discover the ntp peers
-[ntp_erros.sh](https://github.com/galindro/zabbix-enhanced-templates/blob/master/scripts/ntp_errors.sh): used to calculate the number of reachability errors. It is a customized version of [ntp_packets.sh](http://www.linuxjournal.com/article/6812)
-[userparameter_ntp.conf](https://github.com/galindro/zabbix-enhanced-templates/blob/master/zabbix_agentd.d/userparameter_ntp.conf): used by zabbix agent
+  - [ntp_discovery.sh](https://github.com/galindro/zabbix-enhanced-templates/blob/master/scripts/ntp_discovery.sh): used to discover the ntp peers
+  - [ntp_erros.sh](https://github.com/galindro/zabbix-enhanced-templates/blob/master/scripts/ntp_errors.sh): used to calculate the number of reachability errors. It is a customized version of [ntp_packets.sh](http://www.linuxjournal.com/article/6812)
+  - [userparameter_ntp.conf](https://github.com/galindro/zabbix-enhanced-templates/blob/master/zabbix_agentd.d/userparameter_ntp.conf): used by zabbix agent
 
 The scripts must be placed in /etc/zabbix/scripts. If you want to change the destiny, you will need to changed the [userparameter_ntp.conf](https://github.com/galindro/zabbix-enhanced-templates/blob/master/zabbix_agentd.d/userparameter_ntp.conf) file to reflect the new path.
 
